@@ -2,12 +2,11 @@ package javaCamp.business.abstracts;
 
 import java.util.List;
 
-
 import javaCamp.core.utilities.results.DataResult;
 import javaCamp.core.utilities.results.Result;
-import javaCamp.entities.concretes.JobTitle;
+import javaCamp.entities.concretes.Employee;
 
-public interface JobTitleService {
-	DataResult< List<JobTitle>> getAll();
-	Result add(JobTitle jobTitle);
+public interface EmployeeService {
+	DataResult<List<Employee>> getAll();
+	Result add(Employee employee);
 }

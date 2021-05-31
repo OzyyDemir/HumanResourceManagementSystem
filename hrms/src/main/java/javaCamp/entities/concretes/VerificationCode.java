@@ -9,24 +9,25 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="job_position")
-public class JobTitle {
-	
+@Table(name="verification_codes")
+public class VerificationCode {
+
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="position")
-	private String title;
+	@Column(name = "code")
+	private String code;
 	
-
-	
-
+	@Column(name = "is_verified")
+	private boolean isVerified;
 }

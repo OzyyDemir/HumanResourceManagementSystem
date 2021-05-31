@@ -9,32 +9,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javaCamp.business.abstracts.JobTitleService;
+import javaCamp.business.abstracts.EmployerService;
 import javaCamp.core.utilities.results.DataResult;
 import javaCamp.core.utilities.results.Result;
-import javaCamp.entities.concretes.JobTitle;
-
+import javaCamp.entities.concretes.Employer;
 
 @RestController
-@RequestMapping("/api/jobtitles")
-public class JobTitlesController {
-
-	private JobTitleService jobTitleService;
+@RequestMapping("/api/employers")
+public class EmployersController {
 	
+	EmployerService employerService;
+
 	@Autowired
-	public JobTitlesController(JobTitleService jobTitleService) {
+	public EmployersController(EmployerService employerService) {
 		super();
-		this.jobTitleService = jobTitleService;
+		this.employerService = employerService;
 	}
-
-	@GetMapping("/getall")
-	public DataResult<List<JobTitle>> getAll(){
-		return this.jobTitleService.getAll();
-	}
-	
-	@PostMapping("/add")
-	public Result add(@RequestBody JobTitle jobTitle) {
-		return this.jobTitleService.add(jobTitle);
-	}
+	 	@GetMapping("/getall") 
+		public DataResult<List<Employer>> getAll(){
+			
+			return employerService.findAll(); 
+		}
+	 	@PostMapping("/add") 
+	 	public Result add(@RequestBody Employer employer) {
+	 		
+	 		 return employerService.add(employer); 
+	 	}
 
 }
