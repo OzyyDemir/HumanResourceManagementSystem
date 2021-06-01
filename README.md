@@ -1,4 +1,4 @@
-# HumanResourceManagementSystem
+# Human Resource Management System
 
 ## Spring Boot Application in Java
 
